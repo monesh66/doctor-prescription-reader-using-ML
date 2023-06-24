@@ -12,4 +12,8 @@ app = Flask(__name__,static_url_path='/static')
 @app.route('/home')
 def home():
     
-    return render_template('base.html');
+    return render_template('home.html',logined=0,username="monesh");
+
+
+
+#app.run(debug=True, port=5003)

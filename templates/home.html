@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}HOME PAGE{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/home/stylesheet.css">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script>
+
+        
+document.addEventListener('DOMContentLoaded', function() {
+            const myTimeout = setTimeout(lol, 1000);
+            function lol(){
+                $('.flight_gif').addClass("flying");
+                let time = 0;
+            const animation = setInterval(ani,1000);
+            function ani(){
+                if (time == 0){
+                    $('.a').removeClass("hide");
+                    $('.a').addClass("show");
+                }
+                else if (time == 2){
+                    $('.b').removeClass("hide");
+                    $('.b').addClass("show");
+                }
+                else if (time == 3){
+                    $('.c').removeClass("hide");
+                    $('.c').addClass("show");
+                }
+                else if (time == 4){
+                    $('.d').removeClass("hide");
+                    $('.d').addClass("show");
+                }
+                else if (time == 7){
+                    $('.button').removeClass("hide");
+                    $('.button').addClass("showButton");
+                }
+                time = time + 1;
+       
+            }
+                clearTimeout(myTimeout);
+            }
+            
+        }, false);
+    
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="box">
+
+    <div class="imgBox showRight">
+        <img style="margin-top: 5px; margin-left: 5px;" src="/static/home/img1.png">
+    </div>
+    
+    <div class="textBox">
+        <div>
+        <h1 class="a hide">Hard to read your doctor's prescription?</h1>
+        <h1 class="b hide">No problem, we will read for you!,</h1>
+        <h1 class="c hide">With our advanced meachine leaning model,</h1>
+        <h1 class="d hide">That capable to read doctor's handwriting!.</h1>
+    </div>
+
+        <div class="button hide">
+            <a href="/upload"><button>Upload your prescription to read it!<img style="height: 40px; width: 50px;position: absolute;margin-left: 20px;" src="/static/home/arrow.png">
+            </button></a>
+            
+        </div> 
+    </div>
+</div>
+{% endblock %}
