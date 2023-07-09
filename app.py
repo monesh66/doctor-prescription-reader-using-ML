@@ -179,22 +179,97 @@ def logout():
 
 
  #====================================== /logout ===================================
-@app.route('/upload')
+@app.route('/upload',methods=["GET","POST"])
 def upload():
+    if request.method == "POST":
+        
+        file = request.files['file']
+        file.save(f'ML/uploaded_image/{file.filename}')
+        
+        process_file = open('ML/img_upload_status.txt','w')
+        process_file.write(file.filename)
+        process_file.close()
+        
+        return redirect(url_for('loading'))
+    
+    
+    else:
+        if not session.get("username"):
+            flash("Login to access")
+            return render_template('login.html')
+    
+        else:
+            print("3")
+            username = session.get("username")
+            login_status = 1
+    
+        return render_template('upload.html',username=username,logined=login_status)
+
+
+    
+ #====================================== /logout ===================================
+@app.route('/loding')
+def loading():
     if not session.get("username"):
         flash("Login to access")
-        return render_template('login.html')
-    
+        return render_template('login.html',username="User",logined=0)
+
     else:
         print("3")
         username = session.get("username")
         login_status = 1
+
+    return render_template('loading.html',username=username,logined=login_status)
     
-    return render_template('upload.html',username=username,logined=login_status)
+
+@app.route('/status', methods=['POST','GET'])
+def data_process():
+
+    
+    file = open("lollol.txt",'r')
+    process = file.readlines()
+    response = {
+        'status': 'Processing',
+        'message': process
+    }
+    file.close()
+    
+    return jsonify(response)
 
 
+@app.route('/result', methods=['GET'])
+def result():
+
+
+        
+        if not session.get("username"):
+            flash("Login to access")
+            return render_template('result.html',username="User",logined=0)
+
+        else:
+            username = session.get("username")
+            login_status = 1
+
+        return render_template('result.html',username=username,logined=login_status)
+
+
+@app.route('/lol', methods=['GET','POST'])
+def result_lol():
+
+        
+        file = open("lolloll.txt",'r')
+        process = file.readlines()
+        response = {}
+        count = 0
+        for i in process:
+            count = count + 1
+            response[str(count)] = str(i)
+            
+        for i in range(count+1,21):
+            response[str(i)] = "";
+        file.close()
+        print(response)
     
-    
-    
+        return jsonify(response)
 
 #app.run(debug=True, port=5000)

@@ -1,0 +1,20 @@
+body{
+    background-image: radial-gradient(rgb(95, 95, 95),rgb(43, 43, 43));
+}
+.navbar a{
+    color: rgb(223, 43, 226);
+}
+.loading{
+    text-align: center;
+}
+.loading img{
+    margin-top: 300px;
+    height: 100px;
+    width: 100px;
+}
+.loading p{
+    font-size: 30px;
+    color: white;
+}
+
+

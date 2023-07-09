@@ -3,3 +3,16 @@
 {% block title %}UPLOAD{% endblock %}
 
 {% block head %}
+<link rel="stylesheet" href="/static/upload/stylesheet.css">
+{% endblock %}
+
+{% block body %}
+<div class="box">
+    <h1>Upload your doctor's prescription</h1>
+    <img src="/static/upload/img1.png">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input style="width: 400px;" class="a" type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+</div>
+{% endblock %}

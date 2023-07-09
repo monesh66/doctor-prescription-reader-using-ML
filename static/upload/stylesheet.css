@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    border: 0;
+}
+body{
+    background-image: radial-gradient(rgb(95, 95, 95),rgb(43, 43, 43));
+}
+.box{
+    height: 550px;
+    width: 900px;
+    margin-top: 150px;
+    margin-left: 300px;
+    background-color: rgb(223, 43, 226);
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 5px;
+    text-align: center;
+}
+.box h1{
+    font-size: 50px;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.box img{
+    width: 300px;
+    height: 300px;
+}
+.navbar a{
+    color: rgb(223, 43, 226);
+}
+.box form{
+    margin-top: 100px;
+}
+.box form input{
+    height: 50px;
+    width: 200px;
+    background-color: rgb(179, 0, 255);
+    font-size: 25px;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    margin-left: 100px;
+    border-radius: 10px;
+    border: 5px solid black;
+}
